@@ -13,6 +13,16 @@
 		2575D7FE1F77A27A006904FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2575D7FD1F77A27A006904FB /* Assets.xcassets */; };
 		2575D8011F77A27A006904FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2575D7FF1F77A27A006904FB /* LaunchScreen.storyboard */; };
 		2575D8041F77A27A006904FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8031F77A27A006904FB /* main.m */; };
+		2575D8101F77ABFA006904FB /* BooksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D80F1F77ABFA006904FB /* BooksModel.m */; };
+		2575D8131F77AC8C006904FB /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8121F77AC8C006904FB /* Items.m */; };
+		2575D8161F77AD25006904FB /* VolumeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8151F77AD25006904FB /* VolumeInfo.m */; };
+		2575D8191F77AD3A006904FB /* SaleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8181F77AD3A006904FB /* SaleInfo.m */; };
+		2575D81C1F77AD50006904FB /* AccessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D81B1F77AD50006904FB /* AccessInfo.m */; };
+		2575D81F1F77AEDE006904FB /* IndustryIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D81E1F77AEDE006904FB /* IndustryIdentifiers.m */; };
+		2575D8221F77AF31006904FB /* ReadingModes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8211F77AF31006904FB /* ReadingModes.m */; };
+		2575D8251F77AF9F006904FB /* ImageLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8241F77AF9F006904FB /* ImageLinks.m */; };
+		2575D8281F77B147006904FB /* ePub.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8271F77B147006904FB /* ePub.m */; };
+		2575D82B1F77B2D5006904FB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2575D82A1F77B2D5006904FB /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +34,27 @@
 		2575D7FB1F77A27A006904FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2575D7FD1F77A27A006904FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2575D8001F77A27A006904FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2575D8021F77A27A006904FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2575D8031F77A27A006904FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2575D80C1F77A6CB006904FB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2575D80E1F77ABFA006904FB /* BooksModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BooksModel.h; sourceTree = "<group>"; };
+		2575D80F1F77ABFA006904FB /* BooksModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BooksModel.m; sourceTree = "<group>"; };
+		2575D8111F77AC8C006904FB /* Items.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Items.h; sourceTree = "<group>"; };
+		2575D8121F77AC8C006904FB /* Items.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Items.m; sourceTree = "<group>"; };
+		2575D8141F77AD25006904FB /* VolumeInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VolumeInfo.h; sourceTree = "<group>"; };
+		2575D8151F77AD25006904FB /* VolumeInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VolumeInfo.m; sourceTree = "<group>"; };
+		2575D8171F77AD3A006904FB /* SaleInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SaleInfo.h; sourceTree = "<group>"; };
+		2575D8181F77AD3A006904FB /* SaleInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SaleInfo.m; sourceTree = "<group>"; };
+		2575D81A1F77AD50006904FB /* AccessInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessInfo.h; sourceTree = "<group>"; };
+		2575D81B1F77AD50006904FB /* AccessInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessInfo.m; sourceTree = "<group>"; };
+		2575D81D1F77AEDE006904FB /* IndustryIdentifiers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndustryIdentifiers.h; sourceTree = "<group>"; };
+		2575D81E1F77AEDE006904FB /* IndustryIdentifiers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndustryIdentifiers.m; sourceTree = "<group>"; };
+		2575D8201F77AF31006904FB /* ReadingModes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadingModes.h; sourceTree = "<group>"; };
+		2575D8211F77AF31006904FB /* ReadingModes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadingModes.m; sourceTree = "<group>"; };
+		2575D8231F77AF9F006904FB /* ImageLinks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageLinks.h; sourceTree = "<group>"; };
+		2575D8241F77AF9F006904FB /* ImageLinks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageLinks.m; sourceTree = "<group>"; };
+		2575D8261F77B147006904FB /* ePub.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ePub.h; sourceTree = "<group>"; };
+		2575D8271F77B147006904FB /* ePub.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ePub.m; sourceTree = "<group>"; };
+		2575D82A1F77B2D5006904FB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BooksApp/Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +71,7 @@
 		2575D7E81F77A27A006904FB = {
 			isa = PBXGroup;
 			children = (
+				2575D80C1F77A6CB006904FB /* README.md */,
 				2575D7F31F77A27A006904FB /* BooksApp */,
 				2575D7F21F77A27A006904FB /* Products */,
 			);
@@ -71,6 +101,7 @@
 				2575D7F51F77A27A006904FB /* AppDelegate.m */,
 				2575D7F71F77A27A006904FB /* ViewController.h */,
 				2575D7F81F77A27A006904FB /* ViewController.m */,
+				2575D80D1F77A9C8006904FB /* Data Model */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -78,13 +109,38 @@
 		2575D80B1F77A34F006904FB /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				2575D82A1F77B2D5006904FB /* Info.plist */,
 				2575D7FA1F77A27A006904FB /* Main.storyboard */,
 				2575D7FD1F77A27A006904FB /* Assets.xcassets */,
 				2575D7FF1F77A27A006904FB /* LaunchScreen.storyboard */,
-				2575D8021F77A27A006904FB /* Info.plist */,
 				2575D8031F77A27A006904FB /* main.m */,
 			);
 			path = "Other Sources";
+			sourceTree = "<group>";
+		};
+		2575D80D1F77A9C8006904FB /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				2575D80E1F77ABFA006904FB /* BooksModel.h */,
+				2575D80F1F77ABFA006904FB /* BooksModel.m */,
+				2575D8111F77AC8C006904FB /* Items.h */,
+				2575D8121F77AC8C006904FB /* Items.m */,
+				2575D8141F77AD25006904FB /* VolumeInfo.h */,
+				2575D8151F77AD25006904FB /* VolumeInfo.m */,
+				2575D8171F77AD3A006904FB /* SaleInfo.h */,
+				2575D8181F77AD3A006904FB /* SaleInfo.m */,
+				2575D81A1F77AD50006904FB /* AccessInfo.h */,
+				2575D81B1F77AD50006904FB /* AccessInfo.m */,
+				2575D81D1F77AEDE006904FB /* IndustryIdentifiers.h */,
+				2575D81E1F77AEDE006904FB /* IndustryIdentifiers.m */,
+				2575D8201F77AF31006904FB /* ReadingModes.h */,
+				2575D8211F77AF31006904FB /* ReadingModes.m */,
+				2575D8231F77AF9F006904FB /* ImageLinks.h */,
+				2575D8241F77AF9F006904FB /* ImageLinks.m */,
+				2575D8261F77B147006904FB /* ePub.h */,
+				2575D8271F77B147006904FB /* ePub.m */,
+			);
+			path = "Data Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2575D82B1F77B2D5006904FB /* Info.plist in Resources */,
 				2575D8011F77A27A006904FB /* LaunchScreen.storyboard in Resources */,
 				2575D7FE1F77A27A006904FB /* Assets.xcassets in Resources */,
 				2575D7FC1F77A27A006904FB /* Main.storyboard in Resources */,
@@ -159,8 +216,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2575D7F91F77A27A006904FB /* ViewController.m in Sources */,
+				2575D8281F77B147006904FB /* ePub.m in Sources */,
+				2575D8221F77AF31006904FB /* ReadingModes.m in Sources */,
 				2575D8041F77A27A006904FB /* main.m in Sources */,
+				2575D8131F77AC8C006904FB /* Items.m in Sources */,
+				2575D8161F77AD25006904FB /* VolumeInfo.m in Sources */,
+				2575D8191F77AD3A006904FB /* SaleInfo.m in Sources */,
+				2575D8251F77AF9F006904FB /* ImageLinks.m in Sources */,
+				2575D81C1F77AD50006904FB /* AccessInfo.m in Sources */,
+				2575D8101F77ABFA006904FB /* BooksModel.m in Sources */,
 				2575D7F61F77A27A006904FB /* AppDelegate.m in Sources */,
+				2575D81F1F77AEDE006904FB /* IndustryIdentifiers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

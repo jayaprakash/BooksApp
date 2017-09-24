@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 
+
+// the http URL used for fetching the books
+static NSString *const FreeEBooks = @"https://www.googleapis.com/books/v1/volumes?filter=free-ebooks&q=a";
+
 @interface AppDelegate ()
 
 @end
