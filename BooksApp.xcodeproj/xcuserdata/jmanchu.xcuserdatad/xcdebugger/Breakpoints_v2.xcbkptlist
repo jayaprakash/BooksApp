@@ -26,7 +26,7 @@
                   moduleName = "BooksApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jmanchu/Assignment/BooksApp/BooksApp/Classes/KeychainItemWrapper.m"
-                  timestampString = "527974798.896119"
+                  timestampString = "527978371.933746"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "325"
@@ -41,7 +41,7 @@
                   moduleName = "BooksApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jmanchu/Assignment/BooksApp/BooksApp/Classes/KeychainItemWrapper.m"
-                  timestampString = "527974798.898221"
+                  timestampString = "527978371.935789"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "325"
@@ -57,29 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BooksApp/Classes/Data Model/Offers.m"
-            timestampString = "527977409.484366"
+            filePath = "BooksApp/Classes/BookViewController.m"
+            timestampString = "527978586.209416"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "-setValue:forKey:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BooksApp/Classes/Data Model/VolumeInfo.m"
-            timestampString = "527977409.484424"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "-setValue:forKey:"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-setBookModel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

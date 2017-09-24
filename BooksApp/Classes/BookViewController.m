@@ -24,6 +24,7 @@ static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
 @property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rightBarButtonItem;
 @property (assign, nonatomic) BOOL isLoadingAll;
+@property (nonatomic, strong) NSArray *itemsToDisplay;
 
 @end
 
@@ -35,11 +36,25 @@ static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
     //self.keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"TestAppLoginData" accessGroup:nil];
     _imageDownloadsInProgress = [NSMutableDictionary dictionary];
     self.isLoadingAll = true;
+    [_rightBarButtonItem setEnabled:NO];
 }
 
 - (IBAction)toggleAllVsTopRated:(id)sender {
     _isLoadingAll = !_isLoadingAll;
     [(UIBarButtonItem *)sender setTitle:(_isLoadingAll?@"Top Rated":@"All")];
+    if(!_isLoadingAll) {
+        NSPredicate *topRatedPredicate = [NSPredicate predicateWithFormat:@"volumeInfo.averageRating >= 4"];
+        self.itemsToDisplay = [_bookModel.items filteredArrayUsingPredicate:topRatedPredicate];
+    } else {
+        self.itemsToDisplay = _bookModel.items;
+    }
+    [_tableView reloadData];
+}
+
+- (void)setBookModel:(BooksModel *)bookModel {
+    _bookModel = bookModel;
+    self.itemsToDisplay = _bookModel.items;
+    [_rightBarButtonItem setEnabled:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -84,7 +99,7 @@ static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
 // -------------------------------------------------------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSUInteger count = [[self.bookModel items] count];
+    NSUInteger count = [_itemsToDisplay count];
     
     // if there's no data yet, return enough rows to fill the screen
     if (count == 0)
@@ -101,7 +116,7 @@ static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
 {
     UITableViewCell *cell = nil;
     
-    NSUInteger nodeCount = [[self.bookModel items] count];
+    NSUInteger nodeCount = [_itemsToDisplay count];
     
     if (nodeCount == 0 && indexPath.row == 0)
     {
@@ -116,7 +131,7 @@ static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
         if (nodeCount > 0)
         {
             // Set up the cell representing the app
-            Item *selectedItem = [self.bookModel items][indexPath.row];
+            Item *selectedItem = _itemsToDisplay[indexPath.row];
             VolumeInfo *volumeInfo = selectedItem.volumeInfo;
             
             cell.textLabel.text = volumeInfo.title;
@@ -154,7 +169,7 @@ static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
     {
         //if you need to pass data to the next controller do it here
         NSInteger selectedRow = [self.tableView indexPathForCell:(UITableViewCell *)sender].row;
-        Item *selectedItem = [[self.bookModel items]  objectAtIndex:selectedRow];
+        Item *selectedItem = [_itemsToDisplay  objectAtIndex:selectedRow];
         [(BookDetailViewController *)[segue destinationViewController] setSelectedItem:selectedItem];
     }
 }
@@ -196,12 +211,12 @@ static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
 // -------------------------------------------------------------------------------
 - (void)loadImagesForOnscreenRows
 {
-    if ([[self.bookModel items] count] > 0)
+    if ([_itemsToDisplay count] > 0)
     {
         NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
         for (NSIndexPath *indexPath in visiblePaths)
         {
-            Item *itemRec = [self.bookModel items][indexPath.row];
+            Item *itemRec = _itemsToDisplay[indexPath.row];
             
             if (!itemRec.volumeInfo.imageLinks.smallThumbnailIcon)
                 // Avoid the app icon download if the app already has an icon
