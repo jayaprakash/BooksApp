@@ -11,6 +11,9 @@
 
 @interface BooksModel : NSObject
 @property (nonatomic, strong) NSString* kind;
-@property (nonatomic, assign) NSInteger* totalItems;
-@property (nonatomic, strong) NSArray* items;
+@property (nonatomic, assign) NSString* totalItems;
+@property (nonatomic, strong) NSArray<Item *>* items;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
+
 @end

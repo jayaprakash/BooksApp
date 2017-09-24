@@ -67,6 +67,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Books" id="jr9-6s-OuM"/>
+                    <connections>
+                        <outlet property="tableView" destination="r7L-Mb-c6Y" id="uXS-5f-YpH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

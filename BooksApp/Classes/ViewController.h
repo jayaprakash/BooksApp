@@ -11,6 +11,7 @@
 
 @interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) BooksModel *bookModel;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 @end
 

@@ -23,6 +23,7 @@
 		2575D8251F77AF9F006904FB /* ImageLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8241F77AF9F006904FB /* ImageLinks.m */; };
 		2575D8281F77B147006904FB /* ePub.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8271F77B147006904FB /* ePub.m */; };
 		2575D82B1F77B2D5006904FB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2575D82A1F77B2D5006904FB /* Info.plist */; };
+		2575D82E1F77DA88006904FB /* ParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D82D1F77DA88006904FB /* ParseOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		2575D8261F77B147006904FB /* ePub.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ePub.h; sourceTree = "<group>"; };
 		2575D8271F77B147006904FB /* ePub.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ePub.m; sourceTree = "<group>"; };
 		2575D82A1F77B2D5006904FB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BooksApp/Info.plist; sourceTree = SOURCE_ROOT; };
+		2575D82C1F77DA88006904FB /* ParseOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseOperation.h; sourceTree = "<group>"; };
+		2575D82D1F77DA88006904FB /* ParseOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 				2575D7F51F77A27A006904FB /* AppDelegate.m */,
 				2575D7F71F77A27A006904FB /* ViewController.h */,
 				2575D7F81F77A27A006904FB /* ViewController.m */,
+				2575D82C1F77DA88006904FB /* ParseOperation.h */,
+				2575D82D1F77DA88006904FB /* ParseOperation.m */,
 				2575D80D1F77A9C8006904FB /* Data Model */,
 			);
 			path = Classes;
@@ -222,6 +227,7 @@
 				2575D8131F77AC8C006904FB /* Item.m in Sources */,
 				2575D8161F77AD25006904FB /* VolumeInfo.m in Sources */,
 				2575D8191F77AD3A006904FB /* SaleInfo.m in Sources */,
+				2575D82E1F77DA88006904FB /* ParseOperation.m in Sources */,
 				2575D8251F77AF9F006904FB /* ImageLinks.m in Sources */,
 				2575D81C1F77AD50006904FB /* AccessInfo.m in Sources */,
 				2575D8101F77ABFA006904FB /* BooksModel.m in Sources */,
