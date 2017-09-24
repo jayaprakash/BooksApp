@@ -11,7 +11,7 @@
 #import "SaleInfo.h"
 #import "AccessInfo.h"
 
-@interface Items : NSObject
+@interface Item : NSObject
 @property (nonatomic, strong) NSString* kind;
 @property (nonatomic, strong) NSString* idValue;
 @property (nonatomic, strong) NSString* etag;

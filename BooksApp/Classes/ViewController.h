@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BooksModel.h"
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, strong) BooksModel *bookModel;
 
 @end
 

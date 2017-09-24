@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Item.h"
 
 @interface BooksModel : NSObject
 @property (nonatomic, strong) NSString* kind;

@@ -6,8 +6,8 @@
 //  Copyright © 2017 Jay. All rights reserved.
 //
 
-#import "Items.h"
+#import "Item.h"
 
-@implementation Items
+@implementation Item
 
 @end

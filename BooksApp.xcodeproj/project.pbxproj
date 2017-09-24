@@ -14,7 +14,7 @@
 		2575D8011F77A27A006904FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2575D7FF1F77A27A006904FB /* LaunchScreen.storyboard */; };
 		2575D8041F77A27A006904FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8031F77A27A006904FB /* main.m */; };
 		2575D8101F77ABFA006904FB /* BooksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D80F1F77ABFA006904FB /* BooksModel.m */; };
-		2575D8131F77AC8C006904FB /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8121F77AC8C006904FB /* Items.m */; };
+		2575D8131F77AC8C006904FB /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8121F77AC8C006904FB /* Item.m */; };
 		2575D8161F77AD25006904FB /* VolumeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8151F77AD25006904FB /* VolumeInfo.m */; };
 		2575D8191F77AD3A006904FB /* SaleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8181F77AD3A006904FB /* SaleInfo.m */; };
 		2575D81C1F77AD50006904FB /* AccessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D81B1F77AD50006904FB /* AccessInfo.m */; };
@@ -38,8 +38,8 @@
 		2575D80C1F77A6CB006904FB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2575D80E1F77ABFA006904FB /* BooksModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BooksModel.h; sourceTree = "<group>"; };
 		2575D80F1F77ABFA006904FB /* BooksModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BooksModel.m; sourceTree = "<group>"; };
-		2575D8111F77AC8C006904FB /* Items.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Items.h; sourceTree = "<group>"; };
-		2575D8121F77AC8C006904FB /* Items.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Items.m; sourceTree = "<group>"; };
+		2575D8111F77AC8C006904FB /* Item.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		2575D8121F77AC8C006904FB /* Item.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		2575D8141F77AD25006904FB /* VolumeInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VolumeInfo.h; sourceTree = "<group>"; };
 		2575D8151F77AD25006904FB /* VolumeInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VolumeInfo.m; sourceTree = "<group>"; };
 		2575D8171F77AD3A006904FB /* SaleInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SaleInfo.h; sourceTree = "<group>"; };
@@ -123,8 +123,8 @@
 			children = (
 				2575D80E1F77ABFA006904FB /* BooksModel.h */,
 				2575D80F1F77ABFA006904FB /* BooksModel.m */,
-				2575D8111F77AC8C006904FB /* Items.h */,
-				2575D8121F77AC8C006904FB /* Items.m */,
+				2575D8111F77AC8C006904FB /* Item.h */,
+				2575D8121F77AC8C006904FB /* Item.m */,
 				2575D8141F77AD25006904FB /* VolumeInfo.h */,
 				2575D8151F77AD25006904FB /* VolumeInfo.m */,
 				2575D8171F77AD3A006904FB /* SaleInfo.h */,
@@ -219,7 +219,7 @@
 				2575D8281F77B147006904FB /* ePub.m in Sources */,
 				2575D8221F77AF31006904FB /* ReadingModes.m in Sources */,
 				2575D8041F77A27A006904FB /* main.m in Sources */,
-				2575D8131F77AC8C006904FB /* Items.m in Sources */,
+				2575D8131F77AC8C006904FB /* Item.m in Sources */,
 				2575D8161F77AD25006904FB /* VolumeInfo.m in Sources */,
 				2575D8191F77AD3A006904FB /* SaleInfo.m in Sources */,
 				2575D8251F77AF9F006904FB /* ImageLinks.m in Sources */,
