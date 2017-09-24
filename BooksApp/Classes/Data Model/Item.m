@@ -7,8 +7,10 @@
 //
 
 #import "Item.h"
-#import "VolumeInfo.h"
-#import "SaleInfo.h"
+@class VolumeInfo;
+@class SaleInfo;
+@class AccessInfo;
+@class SearchInfo;
 
 @implementation Item
 
@@ -25,6 +27,9 @@
     } else if ([key isEqualToString:@"accessInfo"]) {
         self.accessInfo = [[AccessInfo alloc] init];
         [self.accessInfo setValuesForKeysWithDictionary:value];
+    } else if ([key isEqualToString:@"searchInfo"]) {
+        self.searchInfo = [[SearchInfo alloc] init];
+        [self.searchInfo setValuesForKeysWithDictionary:value];
     }
 }
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {

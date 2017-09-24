@@ -10,6 +10,7 @@
 #import "VolumeInfo.h"
 #import "SaleInfo.h"
 #import "AccessInfo.h"
+#import "SearchInfo.h"
 
 @interface Item : NSObject
 @property (nonatomic, strong) NSString* kind;
@@ -19,4 +20,5 @@
 @property (nonatomic, strong) VolumeInfo* volumeInfo;
 @property (nonatomic, strong) SaleInfo* saleInfo;
 @property (nonatomic, strong) AccessInfo* accessInfo;
+@property (nonatomic, strong) SearchInfo* searchInfo;
 @end

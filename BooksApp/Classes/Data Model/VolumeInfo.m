@@ -7,12 +7,17 @@
 //
 
 #import "VolumeInfo.h"
+@class IndustryIdentifiers;
+@class ReadingModes;
+@class ImageLinks;
 
 @implementation VolumeInfo
 
 - (void)setValue:(id)value forKey:(nonnull NSString *)key {
     [super setValue:value forKey:key];
-    if([key isEqualToString:@"imageLinks"]) {
+    if([key isEqualToString:@"description"]) {
+        self.descriptionVal = value;
+    } else if([key isEqualToString:@"imageLinks"]) {
         self.imageLinks = [[ImageLinks alloc] init];
         [self.imageLinks setValuesForKeysWithDictionary:value];
     } else if([key isEqualToString:@"readingModes"]) {

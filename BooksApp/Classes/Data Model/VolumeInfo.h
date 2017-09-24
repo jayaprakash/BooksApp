@@ -31,4 +31,5 @@
 @property (nonatomic, strong) NSString* previewLink;
 @property (nonatomic, strong) NSString* infoLink;
 @property (nonatomic, strong) NSString* canonicalVolumeLink;
+@property (nonatomic, strong) NSString* descriptionVal;
 @end

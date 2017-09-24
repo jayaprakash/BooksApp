@@ -1,36 +1,79 @@
 //
-//  ViewController.m
+//  BookViewController.m
 //  BooksApp
 //
 //  Created by Jayaprakash Manchu on 9/24/17.
 //  Copyright © 2017 Jay. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "BookViewController.h"
 #import "BooksModel.h"
 #import "Item.h"
 #import "VolumeInfo.h"
+#import "KeychainItemWrapper.h"
+#import "BookDetailViewController.h"
+#import "IconDownloader.h"
 
 #define kCustomRowCount 7
 
 static NSString *CellIdentifier = @"LazyTableCell";
 static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
 
-@interface ViewController ()
+@interface BookViewController () <UIScrollViewDelegate>
+@property (nonatomic, strong) KeychainItemWrapper *keychain;
+@property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *rightBarButtonItem;
+@property (assign, nonatomic) BOOL isLoadingAll;
 
 @end
 
-@implementation ViewController
+@implementation BookViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    //self.keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"TestAppLoginData" accessGroup:nil];
+    _imageDownloadsInProgress = [NSMutableDictionary dictionary];
+    self.isLoadingAll = true;
+}
+
+- (IBAction)toggleAllVsTopRated:(id)sender {
+    _isLoadingAll = !_isLoadingAll;
+    [(UIBarButtonItem *)sender setTitle:(_isLoadingAll?@"Top Rated":@"All")];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    //NSLog(@"Selected: %@",[self.keychain objectForKey:@"Selected"]);
+}
+
+// -------------------------------------------------------------------------------
+//    terminateAllDownloads
+// -------------------------------------------------------------------------------
+- (void)terminateAllDownloads
+{
+    // terminate all pending download connections
+    NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
+    [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
+    
+    [self.imageDownloadsInProgress removeAllObjects];
+}
+
+// -------------------------------------------------------------------------------
+//    dealloc
+//  If this view controller is going away, we need to cancel all outstanding downloads.
+// -------------------------------------------------------------------------------
+- (void)dealloc
+{
+    // terminate all pending download connections
+    [self terminateAllDownloads];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [self terminateAllDownloads];
 }
 
 #pragma mark - UITableViewDataSource
@@ -73,52 +116,68 @@ static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
         if (nodeCount > 0)
         {
             // Set up the cell representing the app
-            Item *appRecord = [self.bookModel items][indexPath.row];
-            VolumeInfo *volumeInfo = appRecord.volumeInfo;
+            Item *selectedItem = [self.bookModel items][indexPath.row];
+            VolumeInfo *volumeInfo = selectedItem.volumeInfo;
             
             cell.textLabel.text = volumeInfo.title;
             cell.detailTextLabel.text = volumeInfo.subtitle;
-            cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
-            /*
+            
             // Only load cached images; defer new downloads until scrolling ends
-            if (!appRecord.appIcon)
+            if (!volumeInfo.imageLinks.smallThumbnailIcon)
             {
                 if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
                 {
-                    [self startIconDownload:appRecord forIndexPath:indexPath];
+                    [self startIconDownload:selectedItem forIndexPath:indexPath];
                 }
                 // if a download is deferred or in progress, return a placeholder image
                 cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
             }
             else
             {
-                cell.imageView.image = appRecord.appIcon;
-            }*/
+                cell.imageView.image = volumeInfo.imageLinks.smallThumbnailIcon;
+            }
         }
     }
     
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"pushToDetails" sender:[tableView cellForRowAtIndexPath:indexPath]];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"pushToDetails"])
+    {
+        //if you need to pass data to the next controller do it here
+        NSInteger selectedRow = [self.tableView indexPathForCell:(UITableViewCell *)sender].row;
+        Item *selectedItem = [[self.bookModel items]  objectAtIndex:selectedRow];
+        [(BookDetailViewController *)[segue destinationViewController] setSelectedItem:selectedItem];
+    }
+}
+
 
 #pragma mark - Table cell image support
 
-/* -------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------
 //    startIconDownload:forIndexPath:
 // -------------------------------------------------------------------------------
-- (void)startIconDownload:(AppRecord *)appRecord forIndexPath:(NSIndexPath *)indexPath
+- (void)startIconDownload:(Item *)selectedItem forIndexPath:(NSIndexPath *)indexPath
 {
     IconDownloader *iconDownloader = (self.imageDownloadsInProgress)[indexPath];
     if (iconDownloader == nil)
     {
         iconDownloader = [[IconDownloader alloc] init];
-        iconDownloader.appRecord = appRecord;
+        iconDownloader.itemVal = selectedItem;
         [iconDownloader setCompletionHandler:^{
             
             UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
             
             // Display the newly loaded image
-            cell.imageView.image = appRecord.appIcon;
+            cell.imageView.image = selectedItem.volumeInfo.imageLinks.smallThumbnailIcon;
             
             // Remove the IconDownloader from the in progress list.
             // This will result in it being deallocated.
@@ -137,17 +196,17 @@ static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
 // -------------------------------------------------------------------------------
 - (void)loadImagesForOnscreenRows
 {
-    if (self.entries.count > 0)
+    if ([[self.bookModel items] count] > 0)
     {
         NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
         for (NSIndexPath *indexPath in visiblePaths)
         {
-            AppRecord *appRecord = (self.entries)[indexPath.row];
+            Item *itemRec = [self.bookModel items][indexPath.row];
             
-            if (!appRecord.appIcon)
+            if (!itemRec.volumeInfo.imageLinks.smallThumbnailIcon)
                 // Avoid the app icon download if the app already has an icon
             {
-                [self startIconDownload:appRecord forIndexPath:indexPath];
+                [self startIconDownload:itemRec forIndexPath:indexPath];
             }
         }
     }
@@ -175,6 +234,6 @@ static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self loadImagesForOnscreenRows];
-}*/
+}
 
 @end

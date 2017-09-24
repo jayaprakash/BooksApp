@@ -11,4 +11,5 @@
 @interface ePub : NSObject
 @property (nonatomic, assign) BOOL isAvailable;
 @property (nonatomic, strong) NSString* downloadLink;
+@property (nonatomic, strong) NSString* acsTokenLink;
 @end

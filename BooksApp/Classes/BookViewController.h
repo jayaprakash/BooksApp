@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  BookViewController.h
 //  BooksApp
 //
 //  Created by Jayaprakash Manchu on 9/24/17.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BooksModel.h"
 
-@interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface BookViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) BooksModel *bookModel;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 

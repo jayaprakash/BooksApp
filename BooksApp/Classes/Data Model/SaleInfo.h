@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Price.h"
+#import "Offers.h"
 
 @interface SaleInfo : NSObject
 @property (nonatomic, strong) NSString* country;
 @property (nonatomic, strong) NSString* saleability;
+@property (nonatomic, strong) Price* listPrice;
+@property (nonatomic, strong) Price* retailPrice;
 @property (nonatomic, assign) BOOL isEbook;
 @property (nonatomic, strong) NSString* buyLink;
+@property (nonatomic, strong) NSArray <Offers *> *offers;
 @end

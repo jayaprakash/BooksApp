@@ -8,11 +8,11 @@
 
 #import "AppDelegate.h"
 #import "ParseOperation.h"
-#import "ViewController.h"
+#import "BookViewController.h"
 
 
 // the http URL used for fetching the books
-static NSString *const FreeEBooks = @"https://www.googleapis.com/books/v1/volumes?filter=free-ebooks&q=a";
+static NSString *const FreeEBooks = @"https://www.googleapis.com/books/v1/volumes?filter=ebooks&q=a";//@"https://www.googleapis.com/books/v1/volumes?filter=free-ebooks&q=a";
 
 @interface AppDelegate ()
 // the queue to run our "ParseOperation"
@@ -118,8 +118,7 @@ static NSString *const FreeEBooks = @"https://www.googleapis.com/books/v1/volume
                     // The root rootViewController is the only child of the navigation
                     // controller, which is the window's rootViewController.
                     //
-                    ViewController *rootViewController =
-                    (ViewController*)[(UINavigationController*)weakSelf.window.rootViewController topViewController];
+                    BookViewController *rootViewController = (BookViewController*)[(UINavigationController*)weakSelf.window.rootViewController topViewController];
                     
                     rootViewController.bookModel = weakParser.booksModel;
                     
