@@ -32,8 +32,8 @@ static void *kURLParametersDictionaryKey;
     NSArray *components = [tmpValue componentsSeparatedByString:@"="];
     
     if (components.count >= 2) {
-      NSString *key = [components[0] stringByReplacingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
-      NSString *value = [components[1] stringByReplacingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+      NSString *key = [components[0] stringByRemovingPercentEncoding];
+      NSString *value = [components[1] stringByRemovingPercentEncoding];
       
       parameters[key] = value;
     }

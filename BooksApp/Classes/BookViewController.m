@@ -10,21 +10,23 @@
 #import "BooksModel.h"
 #import "Item.h"
 #import "VolumeInfo.h"
-#import "KeychainItemWrapper.h"
+#import "KeychainWrapper.h"
 #import "BookDetailViewController.h"
 #import "IconDownloader.h"
 
 #define kCustomRowCount 7
+#define kTopRatedVal 4.0
 
 static NSString *CellIdentifier = @"LazyTableCell";
 static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
 
 @interface BookViewController () <UIScrollViewDelegate>
-@property (nonatomic, strong) KeychainItemWrapper *keychain;
+@property (nonatomic, strong) KeychainWrapper *keychain;
 @property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rightBarButtonItem;
 @property (assign, nonatomic) BOOL isLoadingAll;
 @property (nonatomic, strong) NSArray *itemsToDisplay;
+@property (nonatomic, strong) NSMutableDictionary *markedItemIds;
 
 @end
 
@@ -33,17 +35,23 @@ static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    //self.keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"TestAppLoginData" accessGroup:nil];
+    self.keychain = [[KeychainWrapper alloc] init];
     _imageDownloadsInProgress = [NSMutableDictionary dictionary];
     self.isLoadingAll = true;
     [_rightBarButtonItem setEnabled:NO];
+    NSDictionary *markedIds;
+    /*id *savedData = [self.keychain myObjectForKey:(__bridge NSString *)kSecValueData];
+    if ([archivedData isKindOfClass:NSClassFromString(@"NSData")] &&  archivedData.length > 0) {
+        markedIds = [NSKeyedUnarchiver unarchiveObjectWithData:archivedData];
+    }*/
+    self.markedItemIds = !markedIds ? [NSMutableDictionary dictionaryWithDictionary:markedIds] : [NSMutableDictionary dictionary];
 }
 
 - (IBAction)toggleAllVsTopRated:(id)sender {
     _isLoadingAll = !_isLoadingAll;
     [(UIBarButtonItem *)sender setTitle:(_isLoadingAll?@"Top Rated":@"All")];
     if(!_isLoadingAll) {
-        NSPredicate *topRatedPredicate = [NSPredicate predicateWithFormat:@"volumeInfo.averageRating >= 4"];
+        NSPredicate *topRatedPredicate = [NSPredicate predicateWithFormat:@"volumeInfo.averageRating >= %f",kTopRatedVal];
         self.itemsToDisplay = [_bookModel.items filteredArrayUsingPredicate:topRatedPredicate];
     } else {
         self.itemsToDisplay = _bookModel.items;
@@ -57,9 +65,20 @@ static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
     [_rightBarButtonItem setEnabled:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    //NSLog(@"Selected: %@",[self.keychain objectForKey:@"Selected"]);
+- (IBAction)togglePendingVsRead:(id)sender {
+    UITableViewCell *cell = (UITableViewCell *)[[(UIButton *)sender superview] superview];
+    NSIndexPath *indexPath = [_tableView indexPathForCell:cell];
+    Item *selectedItem = [self.itemsToDisplay objectAtIndex:indexPath.row];
+    if([[_markedItemIds allKeys] containsObject:selectedItem.idValue]) {
+        [_markedItemIds removeObjectForKey:selectedItem.idValue];
+        [(UIButton *)sender setTitle:@"Pending" forState:UIControlStateNormal];
+    } else {
+        [_markedItemIds setValue:@"Read" forKey:selectedItem.idValue];
+        [(UIButton *)sender setTitle:@"Read" forState:UIControlStateNormal];
+    }
+/*
+    [self.keychain mySetObject:_markedItemIds forKey:(__bridge NSString *)kSecValueData];
+    [self.keychain writeToKeychain];*/
 }
 
 // -------------------------------------------------------------------------------
@@ -136,6 +155,7 @@ static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
             
             cell.textLabel.text = volumeInfo.title;
             cell.detailTextLabel.text = volumeInfo.subtitle;
+            [(UIButton *)[cell.contentView viewWithTag:10] setTitle:[[_markedItemIds allKeys] containsObject:selectedItem.idValue]?@"Read":@"Pending" forState:UIControlStateNormal];
             
             // Only load cached images; defer new downloads until scrolling ends
             if (!volumeInfo.imageLinks.smallThumbnailIcon)

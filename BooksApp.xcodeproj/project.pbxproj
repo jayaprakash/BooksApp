@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2553D0661F77FB2300F92E60 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2553D0651F77FB2300F92E60 /* KeychainItemWrapper.m */; };
 		2553D06A1F7818A300F92E60 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2553D0691F7818A300F92E60 /* BookDetailViewController.m */; };
 		2553D06E1F782B1200F92E60 /* NSURL+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 2553D06D1F782B1200F92E60 /* NSURL+Parameters.m */; };
 		2553D0721F782E7900F92E60 /* IconDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2553D0711F782E7800F92E60 /* IconDownloader.m */; };
@@ -30,12 +29,11 @@
 		2575D8251F77AF9F006904FB /* ImageLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8241F77AF9F006904FB /* ImageLinks.m */; };
 		2575D8281F77B147006904FB /* ePub.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D8271F77B147006904FB /* ePub.m */; };
 		2575D82B1F77B2D5006904FB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2575D82A1F77B2D5006904FB /* Info.plist */; };
-		2575D82E1F77DA88006904FB /* ParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2575D82D1F77DA88006904FB /* ParseOperation.m */; };
+		25AEBADC1F78544000DD7E4F /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AEBADB1F78543F00DD7E4F /* KeychainWrapper.m */; };
+		25AEBAE01F7859E800DD7E4F /* ParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AEBADF1F7859E800DD7E4F /* ParseOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2553D0641F77FB2300F92E60 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
-		2553D0651F77FB2300F92E60 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		2553D0671F77FE9F00F92E60 /* BooksApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BooksApp.entitlements; sourceTree = "<group>"; };
 		2553D0681F7818A300F92E60 /* BookDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
 		2553D0691F7818A300F92E60 /* BookDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
@@ -78,8 +76,10 @@
 		2575D8261F77B147006904FB /* ePub.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ePub.h; sourceTree = "<group>"; };
 		2575D8271F77B147006904FB /* ePub.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ePub.m; sourceTree = "<group>"; };
 		2575D82A1F77B2D5006904FB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BooksApp/Info.plist; sourceTree = SOURCE_ROOT; };
-		2575D82C1F77DA88006904FB /* ParseOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseOperation.h; sourceTree = "<group>"; };
-		2575D82D1F77DA88006904FB /* ParseOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseOperation.m; sourceTree = "<group>"; };
+		25AEBADA1F78543F00DD7E4F /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		25AEBADB1F78543F00DD7E4F /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		25AEBADE1F7859E800DD7E4F /* ParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseOperation.h; sourceTree = "<group>"; };
+		25AEBADF1F7859E800DD7E4F /* ParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,13 +147,11 @@
 				2575D7F81F77A27A006904FB /* BookViewController.m */,
 				2553D0681F7818A300F92E60 /* BookDetailViewController.h */,
 				2553D0691F7818A300F92E60 /* BookDetailViewController.m */,
-				2575D82C1F77DA88006904FB /* ParseOperation.h */,
-				2575D82D1F77DA88006904FB /* ParseOperation.m */,
-				2553D0641F77FB2300F92E60 /* KeychainItemWrapper.h */,
-				2553D0651F77FB2300F92E60 /* KeychainItemWrapper.m */,
+				2575D80D1F77A9C8006904FB /* Data Model */,
+				25AEBADD1F7859E800DD7E4F /* Parser */,
+				25AEBAD91F78543F00DD7E4F /* Keychain */,
 				2553D06F1F782E7800F92E60 /* Image Downloader */,
 				2553D06B1F782B1200F92E60 /* NSURL+Parameters */,
-				2575D80D1F77A9C8006904FB /* Data Model */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -199,6 +197,24 @@
 				2553D0771F783BD500F92E60 /* Offers.m */,
 			);
 			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		25AEBAD91F78543F00DD7E4F /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				25AEBADA1F78543F00DD7E4F /* KeychainWrapper.h */,
+				25AEBADB1F78543F00DD7E4F /* KeychainWrapper.m */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		25AEBADD1F7859E800DD7E4F /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				25AEBADE1F7859E800DD7E4F /* ParseOperation.h */,
+				25AEBADF1F7859E800DD7E4F /* ParseOperation.m */,
+			);
+			path = Parser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,14 +304,14 @@
 				2575D8041F77A27A006904FB /* main.m in Sources */,
 				2575D8131F77AC8C006904FB /* Item.m in Sources */,
 				2575D8161F77AD25006904FB /* VolumeInfo.m in Sources */,
-				2553D0661F77FB2300F92E60 /* KeychainItemWrapper.m in Sources */,
 				2575D8191F77AD3A006904FB /* SaleInfo.m in Sources */,
-				2575D82E1F77DA88006904FB /* ParseOperation.m in Sources */,
 				2553D0721F782E7900F92E60 /* IconDownloader.m in Sources */,
 				2575D8251F77AF9F006904FB /* ImageLinks.m in Sources */,
 				2575D81C1F77AD50006904FB /* AccessInfo.m in Sources */,
 				2553D06A1F7818A300F92E60 /* BookDetailViewController.m in Sources */,
+				25AEBAE01F7859E800DD7E4F /* ParseOperation.m in Sources */,
 				2575D8101F77ABFA006904FB /* BooksModel.m in Sources */,
+				25AEBADC1F78544000DD7E4F /* KeychainWrapper.m in Sources */,
 				2575D7F61F77A27A006904FB /* AppDelegate.m in Sources */,
 				2575D81F1F77AEDE006904FB /* IndustryIdentifiers.m in Sources */,
 			);
@@ -438,7 +454,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sample.BooksApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -453,7 +469,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sample.BooksApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

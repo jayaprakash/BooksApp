@@ -108,13 +108,13 @@ static NSString *const FreeEBooks = @"https://www.googleapis.com/books/v1/volume
         __weak ParseOperation *weakParser = self.parser;
         
         self.parser.completionBlock = ^(void) {
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             if (weakParser.booksModel != nil)
             {
                 // The completion block may execute on any thread.  Because operations
                 // involving the UI are about to be performed, make sure they execute on the main thread.
                 //
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                     // The root rootViewController is the only child of the navigation
                     // controller, which is the window's rootViewController.
                     //
